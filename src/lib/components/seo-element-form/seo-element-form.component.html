@@ -1,0 +1,25 @@
+<div class="row container__box">
+  <h3 *ngIf="withTitle" class="col-12 title__box m--b--1r">Seo Configuration</h3>
+  <ng-container *ngIf="structure && modelValue">
+    <ng-container *ngFor="let field of structure">
+      <div class="{{ field['col'] }}">
+        <div class="form-group {{ field['style'] }}">
+          <div class="{{field['label_classes_col']}}">
+            <ng-template appLabelForm></ng-template>
+          </div>
+          <div class="{{field['input_classes_col']}}">
+            <ng-template appInputForm></ng-template>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <div class="col-12 container__btns" *ngIf="withButtons">
+    <a *ngIf="modelValue && modelValue.id"
+      class="btn__default btn__primary"
+      (click)="update()">{{ 'Guardar Cambios' | translate}}</a>
+    <a *ngIf="modelValue && !modelValue.id"
+       class="btn__default btn__primary"
+       (click)="store()">{{ 'Guardar Cambios' | translate}}</a>
+  </div>
+</div>
