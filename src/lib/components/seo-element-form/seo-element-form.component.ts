@@ -38,9 +38,18 @@ export class SeoElementFormComponent extends AbstractFormComponent implements On
   }
 
 
-  public new(): void {
+  public new(args: any[]): void {
     this.modelValue = new SeoElement();
     this.buildErrorModelAndEmitters();
+  }
+
+  public preStore(args: any[]): void {
+    if (args['fk_id']) {
+      this.modelValue.fk_id = args['fk_id'];
+    }
+    if (args['type']) {
+      this.modelValue.type = args['type'];
+    }
   }
   public editBySeoElementIdAndType(fkId: any, type: any): void { // En este caso el id va a venir nulo
     this.getModelService().get(fkId, type).subscribe(
