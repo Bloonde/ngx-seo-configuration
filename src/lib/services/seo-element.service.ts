@@ -38,7 +38,7 @@ export class SeoElementService {
       let metadata = {
         key: field,
         value: seoElement[field],
-        fk_id: seoElement['id']
+        seo_element_id: seoElement['id']
       };
       metadatas.push(metadata);
     })
