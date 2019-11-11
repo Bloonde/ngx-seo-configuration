@@ -3,12 +3,19 @@ import { Observable } from 'rxjs/index';
 import { HttpClient } from '@angular/common/http';
 import { ApiRoutesHelper } from '../helpers/api-routes.helper';
 import { SeoElement } from '../models/seo-element';
+import {ListRequestData} from '../../../../bloonde-ngx-template/src/api/tools/list-request-data';
+import {QueryParamsHelper} from '../../../../bloonde-ngx-template/src/api/tools/query-params.helper';
 
 
 @Injectable()
 export class SeoElementService {
 
   constructor(public _http: HttpClient) {
+  }
+
+  list(listRequestData: ListRequestData): Observable<any> {
+    let query_params = QueryParamsHelper.addQueryParams(listRequestData);
+    return this._http.get(ApiRoutesHelper.getSeoElementListURL(),{params: query_params});
   }
 
   get(fkId: any, type: any): Observable<any> {
