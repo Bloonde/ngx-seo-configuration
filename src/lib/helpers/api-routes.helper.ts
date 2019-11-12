@@ -8,6 +8,10 @@ export class ApiRoutesHelper {
   public static getSeoElementURL(fk_id: any, type: any): string {
     return ApiConfigHelper.getAPIURL() + 'seo-elements/' + type + '/' + fk_id;
   }
+
+  public static getPublicSeoElementURL(fk_id: any, type: any): string {
+    return ApiConfigHelper.HOST + '/public_api/' + ApiConfigHelper.VERSION + 'seo-elements/' + type + '/' + fk_id;
+  }
   public static getSeoElementStoreURL(): string {
     return ApiConfigHelper.getAPIURL() + 'seo-elements';
   }

@@ -22,6 +22,10 @@ export class SeoElementService {
     return this._http.get(ApiRoutesHelper.getSeoElementURL(fkId, type));
   }
 
+  getPublic(fkId: any, type: any): Observable<any> {
+    return this._http.get(ApiRoutesHelper.getPublicSeoElementURL(fkId, type));
+  }
+
   store(seoElement: SeoElement): Observable<Object> {
     const params = this.buildParams(seoElement);
     return this._http.post(ApiRoutesHelper.getSeoElementStoreURL(), params);
